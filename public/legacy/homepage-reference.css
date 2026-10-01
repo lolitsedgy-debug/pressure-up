@@ -398,3 +398,94 @@ html[lang="en"] body:has(#landing.active) .lang-toggle{
     max-width:32em!important;margin:0!important;
   }
 }
+
+
+/* 2026-10-01 owner portrait card — use the existing full Edgar photograph without cropping. */
+.owner-profile-card{
+  position:relative!important;display:block!important;width:min(94%,820px)!important;
+  margin:34px auto 30px!important;padding:0!important;overflow:hidden!important;
+  border:1px solid rgba(56,151,235,.58)!important;border-radius:26px!important;
+  background:#071625!important;box-shadow:0 20px 54px rgba(0,0,0,.30)!important;
+  isolation:isolate!important;
+}
+.owner-profile-card .owner-photo{
+  position:relative!important;width:100%!important;margin:0!important;border-radius:0!important;
+  overflow:hidden!important;background:#071625!important;z-index:0!important;
+}
+.owner-profile-card .owner-photo img{
+  display:block!important;width:100%!important;height:auto!important;max-height:none!important;
+  aspect-ratio:auto!important;object-fit:contain!important;object-position:center top!important;
+  border-radius:0!important;filter:none!important;
+}
+.owner-profile-card .owner-card-content{
+  position:absolute!important;inset:0!important;z-index:2!important;pointer-events:none!important;
+}
+.owner-profile-card .owner-card-content:before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(90deg,rgba(5,17,31,.72) 0%,rgba(5,17,31,.34) 18%,transparent 44%),
+    linear-gradient(270deg,rgba(5,17,31,.20) 0%,transparent 24%),
+    linear-gradient(0deg,#071625 0%,rgba(7,22,37,.99) 15%,rgba(7,22,37,.93) 27%,rgba(7,22,37,.66) 38%,rgba(7,22,37,.20) 51%,transparent 64%);
+}
+.owner-location-pill{
+  position:absolute;left:6.2%;top:4.2%;display:flex;align-items:center;gap:12px;
+  min-height:50px;padding:0 18px;border:1px solid rgba(91,177,255,.90);border-radius:25px;
+  background:rgba(5,25,48,.76);box-shadow:inset 0 0 16px rgba(19,112,219,.16),0 5px 18px rgba(0,0,0,.18);
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);color:#f2f6fb;
+  font:500 16px/1 Arial,sans-serif;letter-spacing:.01em;
+}
+.owner-location-pill span{position:relative;width:17px;height:22px;color:transparent}
+.owner-location-pill span:before{
+  content:"";position:absolute;left:1px;top:0;width:15px;height:15px;border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);background:#8fc6ff;box-shadow:0 0 10px rgba(70,165,255,.35);
+}
+.owner-location-pill span:after{
+  content:"";position:absolute;left:6px;top:5px;width:5px;height:5px;border-radius:50%;background:#09213a;
+}
+.owner-location-pill i{width:1px;height:25px;background:rgba(207,227,245,.60)}
+.owner-location-pill b{font:inherit}
+.owner-card-copy{
+  position:absolute;left:6.2%;right:6.2%;bottom:5.6%;text-align:left;color:#f7f5f1;
+}
+.owner-card-copy h2{
+  margin:0 0 12px!important;font:750 clamp(48px,12vw,76px)/.88 Arial,sans-serif!important;
+  letter-spacing:-.055em!important;color:#f8f5ef!important;text-shadow:0 2px 14px rgba(0,0,0,.30);
+}
+.owner-card-copy h2 span,.owner-card-copy h2 em{display:block;font-style:normal}
+.owner-card-copy h2 em{color:#a9c9ec!important}
+.owner-role{
+  display:block;color:#eef3f7;font:600 clamp(12px,3.5vw,17px)/1.25 Arial,sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;margin:0 0 16px;
+}
+.owner-role strong{color:#9bc6f2;font:700 inherit}
+.owner-accent{display:block;width:50px;height:3px;border-radius:3px;background:#68b9ff;margin:0 0 17px}
+.owner-card-copy p{
+  margin:0!important;max-width:31em!important;color:#edf0f2!important;
+  font:400 clamp(16px,4.3vw,22px)/1.47 Arial,sans-serif!important;
+  letter-spacing:-.012em!important;text-shadow:0 1px 8px rgba(0,0,0,.35);
+}
+.owner-curve{
+  position:absolute;right:-16%;bottom:-5%;width:54%;aspect-ratio:1;border:17px solid rgba(18,91,170,.32);
+  border-left-color:transparent;border-top-color:transparent;border-radius:50%;transform:rotate(-10deg);
+}
+.owner-curve-two{right:-8%;bottom:-12%;width:43%;border-width:10px;border-color:rgba(26,113,204,.22);border-left-color:transparent;border-top-color:transparent}
+
+@media(max-width:700px){
+  .owner-profile-card{
+    width:94%!important;margin:34px auto 28px!important;border-radius:22px!important;
+  }
+  .owner-location-pill{
+    left:5.2%;top:3.5%;min-height:44px;padding:0 15px;gap:10px;border-radius:22px;font-size:14px;
+  }
+  .owner-location-pill i{height:22px}
+  .owner-card-copy{left:5.5%;right:5.5%;bottom:4.8%}
+  .owner-card-copy h2{font-size:clamp(46px,13.4vw,64px)!important;margin-bottom:11px!important}
+  .owner-role{font-size:clamp(11px,3.15vw,14px);letter-spacing:.16em;margin-bottom:13px}
+  .owner-accent{margin-bottom:14px}
+  .owner-card-copy p{font-size:clamp(15px,4.25vw,19px)!important;line-height:1.45!important}
+}
+@media(max-width:390px){
+  .owner-card-copy h2{font-size:47px!important}
+  .owner-card-copy p{font-size:15px!important}
+  .owner-location-pill{font-size:13px}
+}

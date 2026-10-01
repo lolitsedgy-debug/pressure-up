@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="website-content.css" /><link rel="stylesheet" href="homepage.css" />
+  <link id="homepageReferenceStyles" rel="stylesheet" href="homepage-reference.css" />
 </head>
 <body>
   <header class="topbar" id="siteTopbar">
@@ -33,7 +34,7 @@
     </div>
   </header>
   <div class="site-menu" id="siteMenu" aria-hidden="true">
-    <button class="menu-primary" data-action="start">Get My Estimate</button>
+    <button class="menu-primary" data-action="start"><span>Get My Estimate</span><span class="hero-arrow" aria-hidden="true">→</span></button>
     <button data-scroll="proof">Before & After</button>
     <button data-scroll="localWork">Local Work</button>
   </div>
@@ -41,13 +42,15 @@
   <main>
     <section id="landing" class="landing screen active">
       <div class="hero-bg" aria-hidden="true">
-        <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="assets/hero-dark.jpg" data-src="/media/pressure-up-hero.mp4"></video>
+        <img id="heroPoster" src="/media/owner-edgar.jpg" alt="" fetchpriority="high" />
+        <video id="heroVideo" muted playsinline webkit-playsinline preload="metadata"></video>
+        <video id="heroVideoNext" muted playsinline webkit-playsinline preload="metadata"></video>
       </div>
       <div class="hero-copy">
         <span class="eyebrow" id="heroEyebrow">2 MINUTE ESTIMATES</span>
-        <h1 id="heroHeading">A cleaner property<br>starts with a <em>photo.</em></h1>
-        <p id="heroBody">Fast online estimate. No back-and-forth. No obligation.</p>
-        <button class="primary hero-btn" id="heroEstimateBtn" data-action="start">Get My Estimate</button>
+        <h1 id="heroHeading">See the work.<br>Get your<br><em>estimate.</em></h1>
+        <p id="heroBody">Get a fast, no-obligation estimate online.</p>
+        <button class="primary hero-btn" id="heroEstimateBtn" data-action="start"><span>Get My Estimate</span><span class="hero-arrow" aria-hidden="true">→</span></button>
         <div class="trust-row" aria-label="Estimate benefits">
           <span><i id="trustTime">Takes about 2 minutes</i></span>
           <span><i id="trustObligation">No obligation</i></span>
@@ -59,31 +62,26 @@
       <section class="proof-shell" id="proof" aria-label="Before and after services">
         <div class="before-after-glass" id="beforeAfterCard">
           <div class="ba-stage" id="baStage" style="--split:50%">
-            <img class="ba-img ba-before" src="assets/driveway-before.jpg" alt="Driveway before cleaning" />
-            <div class="ba-after-wrap"><img class="ba-img ba-after" src="assets/driveway-after.jpg" alt="Driveway after cleaning" /></div>
+            <img class="ba-img ba-before" src="/media/house-before.jpg" alt="House siding before Pressure Up cleaning" />
+            <div class="ba-after-wrap"><img class="ba-img ba-after" src="/media/house-after.jpg" alt="The same house siding after Pressure Up cleaning" /></div>
             <div class="ba-divider"><span>‹ ›</span></div>
             <span class="ba-label before-label">Before</span><span class="ba-label after-label">After</span>
-            <input id="baSlider" class="ba-slider" type="range" min="8" max="92" value="50" aria-label="Compare before and after" />
+            <input id="baSlider" class="ba-slider" type="range" min="0" max="100" value="50" aria-label="Compare before and after" />
           </div>
           <div class="service-tabs" id="serviceTabs">
-            <button type="button" class="service-tab active" data-service="driveway"><span class="service-icon">⌂</span><span>Driveways</span></button>
-            <button type="button" class="service-tab" data-service="patio"><span class="service-icon">▱</span><span>Patios</span></button>
-            <button type="button" class="service-tab" data-service="exterior"><span class="service-icon">☰</span><span>Siding</span></button>
-            <button type="button" class="service-tab" data-service="exterior"><span class="service-icon">⌃</span><span>Roofs</span></button>
+            <button type="button" class="service-tab active" data-service="driveway"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 12 9-8 9 8M6 10v11h5v-7h3v7h4V10"/></svg></span><span>Driveways</span></button>
+            <button type="button" class="service-tab" data-service="patio"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m4 14 2-9h5l-1 9zm10 0-1-9h5l2 9M3 17h18M5 17l-1 4m5-4 1 4m5-4-1 4m5-4 1 4"/></svg></span><span>Patios</span></button>
+            <button type="button" class="service-tab" data-service="exterior"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 4h18v16H3m0-12h18M3 12h18M3 16h18"/></svg></span><span>Siding</span></button>
+            <button type="button" class="service-tab" data-service="exterior"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m2 16 10-9 10 9M5 11l7-6 7 6M10 15h4"/></svg></span><span>Roofs</span></button>
           </div>
         </div>
       </section>
 
-      <section class="owner-intro" id="aboutOwner" aria-labelledby="ownerHeading">
-        <div class="owner-photo" id="ownerPhoto" hidden></div>
-        <div><span class="map-kicker" id="ownerEyebrow">OWNER-OPERATED</span><h2 id="ownerHeading">Hi, I’m Edgar.</h2><p id="ownerBody">Owner-operated exterior cleaning with straightforward estimates, honest expectations, and careful work.</p></div>
-      </section>
-
       <section class="local-work" id="localWork" aria-label="Local Pressure Up work">
         <div class="local-copy">
-          <span class="map-kicker">Serving the South Bay</span>
+          <span class="map-kicker" id="localKicker">Serving the South Bay</span>
           <h2 id="localHeading">Local. Trusted.<br><em>Right Here.</em></h2>
-          <p id="localBody">Real work around Lawndale, Redondo Beach, Torrance, Hawthorne and nearby communities.</p>
+          <p id="localBody">Lawndale, Redondo Beach, Torrance, Hawthorne and surrounding areas.</p>
         </div>
         <div class="local-map" role="group" aria-label="South Bay service area map">
           <button class="job-pin pin-hawthorne" type="button" data-city="Hawthorne" data-job="Driveway + walkway"><i></i><span>Hawthorne</span></button>
@@ -93,6 +91,11 @@
           <div class="map-project-pop" id="mapProjectPop" hidden><b></b><span></span></div>
         </div>
       </section>
+      <section class="owner-intro" id="aboutOwner" aria-labelledby="ownerHeading">
+        <div class="owner-photo" id="ownerPhoto"><img src="/media/owner-edgar.jpg" alt="Edgar, owner of Pressure Up" width="520" height="780" loading="lazy" /></div>
+        <div><span class="map-kicker" id="ownerEyebrow">OWNER-OPERATED</span><h2 id="ownerHeading">Hi, I’m Edgar.</h2><p id="ownerBody">Owner-operated exterior cleaning with straightforward estimates, honest expectations, and careful work.</p></div>
+      </section>
+
     </section>
 
     <section id="wizard" class="wizard screen">

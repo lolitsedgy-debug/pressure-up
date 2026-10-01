@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#071625" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Pressure Up Owner" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="app-icon.svg" />
+  <title>Pressure Up — Exterior Cleaning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="website-content.css" /><link rel="stylesheet" href="homepage.css" />
+</head>
+<body>
+  <header class="topbar" id="siteTopbar">
+    <a class="brand" id="brandHome" href="#home" aria-label="Pressure Up home">
+      <img class="brand-logo logo-dark" src="assets/logo-dark.png" alt="Pressure Up Exterior Cleaning" />
+      <img class="brand-logo logo-light" src="assets/logo-light.png" alt="Pressure Up Exterior Cleaning" />
+      <span class="brand-name-fallback">Pressure Up</span>
+    </a>
+    <div class="top-actions">
+      <button id="ownerBtn" hidden aria-hidden="true" tabindex="-1"></button>
+      <button class="lang lang-toggle" id="langBtn" type="button" aria-label="Change language">
+        <span class="flag-layer flag-us" aria-hidden="true"></span>
+        <span class="flag-layer flag-es" aria-hidden="true"></span>
+        <span class="lang-choice lang-en">EN</span><span class="lang-divider">|</span><span class="lang-choice lang-es">ES</span>
+      </button>
+      <button class="menu-toggle" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="site-menu" id="siteMenu" aria-hidden="true">
+    <button class="menu-primary" data-action="start">Get My Estimate</button>
+    <button data-scroll="proof">Before & After</button>
+    <button data-scroll="localWork">Local Work</button>
+  </div>
+
+  <main>
+    <section id="landing" class="landing screen active">
+      <div class="hero-bg" aria-hidden="true">
+        <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="assets/hero-dark.jpg" data-src="/media/pressure-up-hero.mp4"></video>
+      </div>
+      <div class="hero-copy">
+        <span class="eyebrow" id="heroEyebrow">2 MINUTE ESTIMATES</span>
+        <h1 id="heroHeading">A cleaner property<br>starts with a <em>photo.</em></h1>
+        <p id="heroBody">Fast online estimate. No back-and-forth. No obligation.</p>
+        <button class="primary hero-btn" id="heroEstimateBtn" data-action="start">Get My Estimate</button>
+        <div class="trust-row" aria-label="Estimate benefits">
+          <span><i id="trustTime">Takes about 2 minutes</i></span>
+          <span><i id="trustObligation">No obligation</i></span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true"></div>
+
+      <section class="proof-shell" id="proof" aria-label="Before and after services">
+        <div class="before-after-glass" id="beforeAfterCard">
+          <div class="ba-stage" id="baStage" style="--split:50%">
+            <img class="ba-img ba-before" src="assets/driveway-before.jpg" alt="Driveway before cleaning" />
+            <div class="ba-after-wrap"><img class="ba-img ba-after" src="assets/driveway-after.jpg" alt="Driveway after cleaning" /></div>
+            <div class="ba-divider"><span>‹ ›</span></div>
+            <span class="ba-label before-label">Before</span><span class="ba-label after-label">After</span>
+            <input id="baSlider" class="ba-slider" type="range" min="8" max="92" value="50" aria-label="Compare before and after" />
+          </div>
+          <div class="service-tabs" id="serviceTabs">
+            <button type="button" class="service-tab active" data-service="driveway"><span class="service-icon">⌂</span><span>Driveways</span></button>
+            <button type="button" class="service-tab" data-service="patio"><span class="service-icon">▱</span><span>Patios</span></button>
+            <button type="button" class="service-tab" data-service="exterior"><span class="service-icon">☰</span><span>Siding</span></button>
+            <button type="button" class="service-tab" data-service="exterior"><span class="service-icon">⌃</span><span>Roofs</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="owner-intro" id="aboutOwner" aria-labelledby="ownerHeading">
+        <div class="owner-photo" id="ownerPhoto" hidden></div>
+        <div><span class="map-kicker" id="ownerEyebrow">OWNER-OPERATED</span><h2 id="ownerHeading">Hi, I’m Edgar.</h2><p id="ownerBody">Owner-operated exterior cleaning with straightforward estimates, honest expectations, and careful work.</p></div>
+      </section>
+
+      <section class="local-work" id="localWork" aria-label="Local Pressure Up work">
+        <div class="local-copy">
+          <span class="map-kicker">Serving the South Bay</span>
+          <h2 id="localHeading">Local. Trusted.<br><em>Right Here.</em></h2>
+          <p id="localBody">Real work around Lawndale, Redondo Beach, Torrance, Hawthorne and nearby communities.</p>
+        </div>
+        <div class="local-map" role="group" aria-label="South Bay service area map">
+          <button class="job-pin pin-hawthorne" type="button" data-city="Hawthorne" data-job="Driveway + walkway"><i></i><span>Hawthorne</span></button>
+          <button class="job-pin pin-lawndale" type="button" data-city="Lawndale" data-job="Driveway restoration"><i></i><span>Lawndale</span></button>
+          <button class="job-pin pin-redondo" type="button" data-city="Redondo Beach" data-job="Patio cleaning"><i></i><span>Redondo Beach</span></button>
+          <button class="job-pin pin-torrance" type="button" data-city="Torrance" data-job="Commercial walkway"><i></i><span>Torrance</span></button>
+          <div class="map-project-pop" id="mapProjectPop" hidden><b></b><span></span></div>
+        </div>
+      </section>
+    </section>
+
+    <section id="wizard" class="wizard screen">
+      <div class="progress-wrap"><button class="back-btn" id="backBtn" aria-label="Go back">←</button><div class="progress"><i id="progressBar"></i></div><span id="stepCount">1 of 6</span></div>
+      <div class="wizard-inner" id="wizardContent"></div>
+    </section>
+
+    <section id="estimate" class="estimate screen">
+      <div class="estimate-shell">
+        <div class="estimate-head">
+          <span class="eyebrow"><i></i> Your plan is ready</span>
+          <h2>Your property is a strong candidate for a professional refresh.</h2>
+          <p>We built this plan from the areas and conditions you documented.</p>
+        </div>
+        <div class="estimate-grid">
+          <div class="plan-card">
+            <div class="plan-top"><div><span class="mini-label">YOUR PERSONALIZED PLAN</span><h3 id="planTitle">Driveway restoration</h3></div><span class="confidence">Preliminary estimate</span></div>
+            <div class="analysis-photo"><div class="scan-line"></div><div class="tag tag-1">Oil staining</div><div class="tag tag-2">Concrete</div><div class="tag tag-3">Clear access</div></div>
+            <div class="plan-steps">
+              <div><span>01</span><p><strong>Professional pretreatment</strong><small>Appropriate solution selected for visible buildup.</small></p></div>
+              <div><span>02</span><p><strong>Targeted stain treatment</strong><small>Degreasing and agitation where the surface needs it.</small></p></div>
+              <div><span>03</span><p><strong>Even surface cleaning</strong><small>Commercial equipment for consistent, line-free coverage.</small></p></div>
+              <div><span>04</span><p><strong>Detailed rinse & inspection</strong><small>Edges finished and the entire area reviewed.</small></p></div>
+            </div>
+            <button class="learn-btn" id="methodBtn"><span class="play">▶</span> See why professional cleaning works <span>→</span></button>
+          </div>
+          <aside class="quote-card">
+            <span class="mini-label">YOUR ESTIMATE</span>
+            <div class="price" id="price">$325</div>
+            <p class="price-note" id="priceNote">Estimated total · Standard treatments included</p>
+            <div class="quote-lines">
+              <div><span>Area assessed</span><b id="areaAssessed">Driveway</b></div>
+              <div><span>Condition</span><b id="conditionLine">Moderate buildup</b></div>
+              <div><span>Expected time</span><b id="timeLine">2–3 hours</b></div>
+              <div><span>Preparation</span><b id="prepLine">Area cleared by customer</b></div>
+            </div>
+            <div class="included"><b>Everything your surface needs is included.</b><p>No surprise charges for ordinary soap, degreaser, hot-water use, or professional equipment.</p></div>
+            <button class="primary full" id="reserveBtn">Reserve my cleaning <span>→</span></button>
+            <button class="secondary full" id="emailPlanBtn">Email my plan</button>
+            <small class="secure-note">🔒 Secure estimate · No payment on jobs under $400</small>
+          </aside>
+        </div>
+        <div class="process-gallery">
+          <article><div class="micro-motion process-soap"><span class="stage-label">Soap loosens buildup</span><div class="spray">••••</div><div class="dirt"><i></i><i></i><i></i></div><b class="lift-arrow">↑ &nbsp; ↑ &nbsp; ↑</b></div><span class="mini-label">STEP 1 · PRETREAT</span><h4>Loosen what water alone can’t.</h4><p>Professional soap breaks the bond between embedded buildup and the surface before rinsing.</p></article>
+          <article><div class="micro-motion process-grease"><span class="stage-label">Target stubborn spots</span><div class="oil-spot"></div><div class="hot-drop">♨</div><b class="break-label">DEGREASER + HEAT</b></div><span class="mini-label">STEP 2 · TREAT STAINS</span><h4>Give problem areas extra attention.</h4><p>Visible oil or grease receives degreaser, agitation, and hot water when the surface needs it.</p></article>
+          <article><div class="micro-motion process-clean"><span class="stage-label">Even, line-free coverage</span><div class="bad-lines"></div><div class="good-clean"></div><div class="cleaner-head"><i></i></div><b class="split-caption">WAND LINES → EVEN FINISH</b></div><span class="mini-label">STEP 3 · SURFACE CLEAN</span><h4>Professional equipment. Cleaner finish.</h4><p>A rotating surface cleaner maintains even distance and coverage to help prevent visible stripes.</p></article>
+        </div>
+        <section class="meet-card">
+          <div class="portrait-placeholder"><div class="portrait-ring"></div><span>ET</span><small>Your photo here</small></div>
+          <div><span class="mini-label">OWNER-OPERATED CARE</span><h3>Know who’s coming to your property.</h3><p>I’m Edgar. I personally review each cleaning plan and handle your service from estimate to final walkthrough.</p><div class="meet-points"><span>✓ Local owner-operated service</span><span>✓ Professional commercial equipment</span><span>✓ Direct text communication</span></div></div>
+        </section>
+        <div class="expectation"><span>Good to know</span><p>Professional cleaning can dramatically improve appearance. Deep oil, rust, paint, or permanent discoloration may improve without disappearing completely.</p></div>
+        <div class="policy-strip"><span><b>7-day estimate</b><small>Your price is held for seven days.</small></span><span><b>Price-lock promise</b><small>No changes unless the submitted scope or condition differs.</small></span><span><b>Weather protected</b><small>Unsafe weather reschedules without penalty.</small></span></div>
+      </div>
+    </section>
+
+    <section id="booking" class="booking screen">
+      <div class="booking-shell">
+        <div class="booking-intro"><button class="back-estimate" data-action="estimate">← Back to plan</button><span class="eyebrow"><i></i> Almost yours</span><h2>Reserve your cleaning.</h2><p>Your plan is ready. Tell us where to send it and choose the time that works for you.</p></div>
+        <form id="bookingForm" class="booking-card">
+          <div class="field-row"><label>First name<input required name="firstName" placeholder="Edgar"></label><label>Last name<input required name="lastName" placeholder="Torres"></label></div>
+          <label>Mobile number<div class="phone-field"><span>+1</span><input required name="phone" inputmode="tel" placeholder="(310) 555-0142"></div><small>Use a number where we can reach you about your appointment.</small></label>
+          <label>Email address<input required name="email" type="email" placeholder="you@example.com"></label>
+          <label>Service address<input required name="address" placeholder="Street address, city, ZIP"></label>
+          <fieldset><legend>Choose a preferred date</legend><div class="calendar-head"><button type="button">‹</button><b>September 2026</b><button type="button">›</button></div><div class="date-grid seven"><button type="button" class="date active"><b>MON</b><span>14</span><small>Open</small></button><button type="button" class="date"><b>TUE</b><span>15</span><small>Open</small></button><button type="button" class="date"><b>WED</b><span>16</span><small>Open</small></button><button type="button" class="date"><b>THU</b><span>17</span><small>Open</small></button><button type="button" class="date"><b>FRI</b><span>18</span><small>Open</small></button><button type="button" class="date"><b>SAT</b><span>19</span><small>Open</small></button><button type="button" class="date unavailable" disabled><b>SUN</b><span>20</span><small>Full</small></button></div></fieldset>
+          <fieldset><legend>Choose an arrival window</legend><div class="window-grid"><button type="button" class="time-window active"><span>☀</span><b>Morning</b><small>Arrival between 8–9 AM</small></button><button type="button" class="time-window"><span>◐</span><b>Afternoon</b><small>Arrival between 12–1 PM</small></button></div><p class="window-note">We’ll text your estimated arrival time before heading over. No evening appointments.</p></fieldset>
+          <fieldset><legend>How will you pay the remaining balance?</legend><label class="radio-card active"><input type="radio" name="payment" value="card" checked><span><b>Card after service</b><small>Payment details confirmed with Edgar</small></span><i>●</i></label><label class="radio-card"><input type="radio" name="payment" value="cash"><span><b>Cash after service</b><small>Your payment will be recorded with a receipt</small></span><i>○</i></label></fieldset>
+          <div class="booking-summary"><span>Estimated total</span><b id="bookingPrice">$325</b><small id="bookingRule">No deposit required. Confirm 24 hours before service.</small></div>
+          <details id="leadSourceField"><summary>How did you hear about us? (optional)</summary><label><span>Source</span><select name="leadSource"><option value="">Choose if you know</option><option>Google</option><option value="Referral">Referral</option><option>Instagram</option><option value="Door hanger">Door hanger</option><option value="Repeat customer">Repeat customer</option><option value="Other">Other</option></select></label></details>
+          <label class="check"><input name="updatesOptIn" type="checkbox"><span>Text me appointment and arrival updates (optional). Message and data rates may apply. Reply STOP to opt out.</span></label>
+          <label class="check"><input required type="checkbox"><span>I confirm my photos reasonably show the requested service area and visible existing conditions.</span></label>
+          <button class="primary full" type="submit">Request appointment <span>→</span></button>
+          <small class="secure-note">For estimates over $500, we’ll briefly call to confirm the scope before collecting a deposit.</small>
+        </form>
+      </div>
+    </section>
+
+    <section id="confirmation" class="confirmation screen">
+      <div class="success-card"><div class="success-mark">✓</div><span class="mini-label">REQUEST RECEIVED</span><h2>Your cleaning plan is saved.</h2><p id="confirmCopy">Your appointment is ready to be confirmed. We’ve sent your plan and preparation instructions.</p><div class="confirmation-box"><div><span>Service</span><b id="confirmService">Driveway restoration</b></div><div><span>Requested arrival</span><b id="confirmTime">Monday, September 14 · 8–9 AM</b></div><div><span>Payment</span><b id="confirmPayment">Card after service</b></div><div><span>Estimated total</span><b id="confirmPrice">$120</b></div></div><a class="primary" id="manageBookingLink" hidden>Manage or cancel appointment</a><button class="primary" id="restartBtn">Create another estimate</button></div>
+    </section>
+
+    <section id="owner" class="owner screen">
+      <div class="os-shell">
+        <aside class="os-sidebar">
+          <div class="brand light"><span class="brand-mark">P</span><span>pressure up</span><small>OWNER</small></div>
+          <nav>
+            <button class="os-nav active" data-view="overview"><span>⌂</span>Today</button>
+            <button class="os-nav" data-view="calendar"><span>□</span>Calendar</button>
+            <button class="os-nav" data-view="customers"><span>◎</span>Customers</button>
+            <button class="os-nav" data-view="estimates"><span>≡</span>Estimates & invoices</button>
+            <button class="os-nav" data-view="messages"><span>◌</span>Messages <i>2</i></button>
+            <button class="os-nav" data-view="settings"><span>⚙</span>Settings</button>
+          </nav>
+          <div class="os-user"><div>ET</div><span><b>Edgar Torres</b><small>Owner</small></span></div>
+          <button id="closeOwner" class="exit-owner">← Customer website</button>
+        </aside>
+        <div class="os-main">
+          <header class="os-mobile-head"><button id="osBack">←</button><b>Pressure Up Owner</b><button id="osMenu">☰</button></header>
+          <div id="ownerView"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="methodModal" aria-hidden="true"><div class="modal-card"><button class="modal-close">×</button><div class="motion-demo"><div class="surface left"><span>Wand only</span><i></i><i></i><i></i></div><div class="surface right"><span>Professional surface cleaner</span><div class="cleaner"><b></b></div></div></div><span class="mini-label">CONSISTENT COVERAGE</span><h3>Professional equipment changes the result.</h3><p>A commercial surface cleaner maintains consistent nozzle height and overlapping rotation. That means faster, more even coverage with less risk of visible striping.</p><button class="primary modal-close-btn">Got it</button></div></div>
+  <div class="modal" id="jobModal" aria-hidden="true"><div class="job-modal-card"><button class="modal-close job-close">×</button><div id="jobDetail"></div></div></div>
+  <div class="modal" id="mapModal" aria-hidden="true"><div class="map-choice"><button class="modal-close map-close">×</button><span class="mini-label">OPEN DIRECTIONS</span><h3>Choose your map every time.</h3><p id="mapAddress"></p><button class="map-app apple" id="appleMaps"><b> Maps</b><small>Open in Apple Maps</small></button><button class="map-app google" id="googleMaps"><b>Google Maps</b><small>Open in Google Maps</small></button></div></div>
+  <script src="funnel.js"></script><script src="photo-assistance.js"></script><script src="photo-originals.js"></script><script src="app.js"></script><script src="business-contact.js"></script><script src="website-content.js"></script><script src="homepage.js"></script>
+</body>
+</html>

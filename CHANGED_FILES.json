@@ -1,0 +1,52 @@
+{
+  "version": "24.0.0-migration.5",
+  "baseline_sha256": "ec6c1ee1aa45e8667cda223673de7f61994486805ec7eaa02b9421955260c8e2",
+  "changed": [
+    ".env.example",
+    "MIGRATION_STATUS.md",
+    "READINESS.md",
+    "README.md",
+    "app/api/availability/route.ts",
+    "app/api/bookings/route.ts",
+    "app/api/owner/bookings/route.ts",
+    "app/auth/signout/route.ts",
+    "app/chatgpt-auth.ts",
+    "app/owner/login/page.tsx",
+    "db/index.ts",
+    "lib/client-assist/receipt-ocr.mjs",
+    "lib/print-records.ts",
+    "lib/runtime-env.ts",
+    "lib/supabase/server.ts",
+    "next.config.ts",
+    "package-lock.json",
+    "package.json",
+    "tsconfig.json",
+    "INTEGRITY_SHA256.txt (regenerated)"
+  ],
+  "added": [
+    "CHANGED_FILES.json",
+    "V24_MIGRATION_STATUS.md",
+    "lib/availability-data.ts",
+    "lib/return-path.ts",
+    "next-env.d.ts",
+    "tests/migration-build.test.mjs",
+    "validation/build.log",
+    "validation/npm-ci.log",
+    "validation/status.json",
+    "validation/targeted-tests.log",
+    "validation/typecheck.log"
+  ],
+  "excluded_generated_files": [
+    ".sites-runtime/npm-cache/_logs/2026-09-27T16_36_32_781Z-debug-0.log",
+    ".sites-runtime/npm-cache/_logs/2026-09-27T16_37_18_139Z-debug-0.log",
+    ".sites-runtime/npm-cache/_logs/2026-09-27T16_49_27_355Z-debug-0.log",
+    ".sites-runtime/npm-cache/_logs/2026-09-27T16_51_00_644Z-debug-0.log",
+    ".sites-runtime/npm-cache/_logs/2026-09-27T17_10_31_865Z-debug-0.log",
+    ".sites-runtime/npm-cache/_logs/2026-09-27T17_14_36_425Z-debug-0.log",
+    ".sites-runtime/npm-cache/_logs/2026-09-27T17_15_18_148Z-debug-0.log",
+    ".sites-runtime/npm-cache/_logs/2026-09-27T17_28_56_722Z-debug-0.log",
+    ".sites-runtime/npm-cache/_logs/2026-09-27T17_29_35_945Z-debug-0.log",
+    "tsconfig.tsbuildinfo"
+  ],
+  "database_schema_files_unchanged": true
+}

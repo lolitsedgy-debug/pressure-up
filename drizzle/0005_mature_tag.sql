@@ -1,0 +1,1 @@
+ALTER TABLE `media` ADD `thumbnail_object_key` text;

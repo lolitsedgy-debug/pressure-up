@@ -1,0 +1,2 @@
+import {requireChatGPTUser} from '../../chatgpt-auth';import {OwnerShell} from '../OwnerShell';import Settings from './settings';export const dynamic='force-dynamic';
+export default async function Page(){const user=await requireChatGPTUser('/owner/settings');if(user.email.toLowerCase()!==(process.env.PRESSURE_UP_OWNER_EMAIL||'pressureup.info@gmail.com').toLowerCase())return <main>Owner access only.</main>;return <OwnerShell active="Settings"><Settings/></OwnerShell>}

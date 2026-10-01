@@ -1,0 +1,1 @@
+export const dashboardOptions={booked:'Booked revenue',review:'Awaiting review',unpaid:'Unpaid invoices',month:'This month',today:'Today’s jobs',upcoming:'Upcoming jobs',messages:'Messages'};export const defaultCards=['booked','review','unpaid','month'];

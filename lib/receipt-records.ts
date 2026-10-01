@@ -1,0 +1,9 @@
+import{rawDb}from'../db';
+export const normalizeVendor=(v:string)=>v.toLowerCase().replace(/[^a-z0-9]/g,'');
+export async function sha256(bytes:ArrayBuffer){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(x=>x.toString(16).padStart(2,'0')).join('')}
+export function hashDistance(a:string,b:string){if(!/^[a-f0-9]{16}$/.test(a)||!/^[a-f0-9]{16}$/.test(b))return 64;let count=0;for(let i=0;i<16;i++){let n=parseInt(a[i],16)^parseInt(b[i],16);while(n){count+=n&1;n>>=1}}return count}
+export async function duplicateReceipts(input:{vendor:string;date:string;amount:number;sha?:string;dhash?:string}){
+ const db=rawDb(),exact=input.sha?(await db.prepare('SELECT id,vendor,expense_date,amount,receipt_sha256,receipt_dhash FROM expenses WHERE receipt_sha256=?').bind(input.sha).all<any>()).results:[],near=(await db.prepare('SELECT id,vendor,expense_date,amount,receipt_sha256,receipt_dhash FROM expenses WHERE expense_date=? OR amount=? ORDER BY created_at DESC LIMIT 1000').bind(input.date,input.amount).all<any>()).results,unique=new Map<string,any>();
+ for(const e of [...exact,...near]){const sameVendor=normalizeVendor(e.vendor)===normalizeVendor(input.vendor),sameDate=e.expense_date===input.date,sameAmount=Math.abs(Number(e.amount)-input.amount)<.005,isExact=!!input.sha&&input.sha===e.receipt_sha256,similar=!!input.dhash&&hashDistance(input.dhash,e.receipt_dhash||'')<=3&&(sameVendor||sameAmount);if(isExact||sameVendor&&sameDate&&sameAmount||similar)unique.set(e.id,{id:e.id,vendor:e.vendor,date:e.expense_date,amount:e.amount,reason:isExact?'Same original receipt file':sameVendor&&sameDate&&sameAmount?'Same vendor, date and amount':'Similar receipt image; please compare'})}
+ const matches=[...unique.values()];const token=matches.length?await sha256(new TextEncoder().encode(JSON.stringify({ids:matches.map(x=>x.id).sort(),...input})).buffer as ArrayBuffer):'';return {matches,token};
+}

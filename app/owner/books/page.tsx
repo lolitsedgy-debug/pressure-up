@@ -1,0 +1,1 @@
+import{requireChatGPTUser}from"../../chatgpt-auth";import{OwnerShell}from"../OwnerShell";import Client from"./client";export const dynamic="force-dynamic";export default async function Page(){const u=await requireChatGPTUser("/owner/books");return <OwnerShell active="Books & reports"><Client/></OwnerShell>}

@@ -1,0 +1,3 @@
+import {env} from '@/lib/runtime-env';
+import {rawDb} from '../db';
+export async function businessSettings(){const db=rawDb(),row=await db.prepare("SELECT * FROM business_settings WHERE id='owner'").first<any>(),base=await db.prepare("SELECT base_address FROM cost_settings WHERE id='owner'").first<any>();return {name:row?.name||'Pressure Up',ownerName:row?.owner_name||'Edgar Torres',phone:row?.phone||String((env as any).BUSINESS_PHONE||'+14242403262'),email:row?.email||String((env as any).PRESSURE_UP_OWNER_EMAIL||(env as any).OWNER_EMAIL||'pressureup.info@gmail.com'),website:row?.website||String((env as any).SITE_URL||'https://pressureup.info'),baseAddress:base?.base_address||String((env as any).BUSINESS_BASE_ADDRESS||''),ownerPhotoKey:row?.owner_photo_key||null}}

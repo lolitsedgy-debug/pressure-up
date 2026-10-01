@@ -52,9 +52,21 @@ document.getElementById('restartBtn').onclick=()=>{window.pressureFunnel?.reset(
   menu?.querySelectorAll('[data-scroll]').forEach(b=>b.addEventListener('click',()=>{setMenu(false);document.getElementById(b.dataset.scroll)?.scrollIntoView({behavior:'smooth',block:'start'})}));
   const slider=document.getElementById('baSlider'),stage=document.getElementById('baStage');
   slider?.addEventListener('input',()=>stage?.style.setProperty('--split',slider.value+'%'));
+  const comparisonMedia={
+    driveway:{before:'/legacy/assets/driveway-before.jpg',after:'/legacy/assets/driveway-after.jpg',label:'Driveway'},
+    siding:{before:'/media/house-before.jpg',after:'/media/house-after.jpg',label:'House siding'}
+  };
+  const beforeImage=stage?.querySelector('.ba-before'),afterImage=stage?.querySelector('.ba-after');
   document.querySelectorAll('.service-tab').forEach(btn=>btn.addEventListener('click',()=>{
+    const media=comparisonMedia[btn.dataset.service];
+    if(!media)return;
     document.querySelectorAll('.service-tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');
-    const service=btn.dataset.service;if(service){state.services=[service];window.pressureFunnel?.start();state.step=1;show('wizard');render()}
+    if(beforeImage&&afterImage){
+      beforeImage.src=media.before;afterImage.src=media.after;
+      beforeImage.alt=media.label+' before Pressure Up cleaning';
+      afterImage.alt=media.label+' after Pressure Up cleaning';
+      if(slider){slider.value='50';stage?.style.setProperty('--split','50%')}
+    }
   }));
   const pop=document.getElementById('mapProjectPop');
   document.querySelectorAll('.job-pin').forEach(pin=>pin.addEventListener('click',()=>{

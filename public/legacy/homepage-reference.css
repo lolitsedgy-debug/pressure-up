@@ -347,3 +347,54 @@ html[lang="en"] .local-work .local-map{display:none!important}
   .owner-intro p{font-size:16px!important;line-height:1.55!important;max-width:none!important}
   .landing .eyebrow{color:#d2e2f0!important;font-weight:700!important;text-shadow:0 2px 8px #000!important}
 }
+
+
+/* 2026-10-01 iPhone review: keep left fog, reduce bottom fog, clean language art, rebuild owner presentation */
+.hero-bg:after,body[data-theme="light"] .hero-bg:after{
+  background:
+    linear-gradient(90deg,#071019 0%,#071019 20%,rgba(7,16,25,.99) 31%,rgba(7,16,25,.95) 43%,rgba(7,16,25,.80) 56%,rgba(7,16,25,.50) 69%,rgba(7,16,25,.20) 82%,rgba(7,16,25,.06) 100%),
+    linear-gradient(0deg,#071019 0%,rgba(7,16,25,.55) 6%,rgba(7,16,25,.18) 13%,transparent 21%),
+    linear-gradient(180deg,rgba(7,16,25,.34),transparent 30%)!important;
+}
+
+/* Crop the supplied reference artwork to the pill itself; removes the blue source-image strip below it. */
+html[lang="en"] body:has(#landing.active) .lang-toggle{
+  height:47px!important;
+  background-size:cover!important;
+  background-position:center 42%!important;
+}
+
+/* Correct selector: the markup is .owner-intro (not .owner-intro.has-portrait). */
+@media(max-width:700px){
+  .owner-intro{
+    display:flex!important;flex-direction:column!important;align-items:stretch!important;
+    width:94%!important;max-width:none!important;margin:34px auto 26px!important;
+    padding:0!important;gap:0!important;border-top:1px solid rgba(132,164,194,.30)!important;
+    border-bottom:1px solid rgba(132,164,194,.30)!important;
+  }
+  .owner-intro .owner-photo{
+    width:100%!important;max-width:none!important;margin:26px 0 0!important;
+    border-radius:22px!important;overflow:hidden!important;
+    box-shadow:0 18px 45px rgba(0,0,0,.28)!important;
+  }
+  .owner-intro .owner-photo img{
+    display:block!important;width:100%!important;height:auto!important;max-height:none!important;
+    aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important;
+    border-radius:22px!important;
+  }
+  .owner-intro>div:last-child{
+    width:100%!important;padding:24px 5px 28px!important;text-align:left!important;
+  }
+  .owner-intro .map-kicker{
+    display:block!important;color:#8fb8e3!important;font-size:11px!important;font-weight:700!important;
+    letter-spacing:.22em!important;margin:0 0 8px!important;
+  }
+  .owner-intro h2{
+    color:#f7f4ee!important;font-size:clamp(34px,10vw,44px)!important;line-height:1!important;
+    letter-spacing:-.035em!important;margin:0 0 14px!important;
+  }
+  .owner-intro p{
+    color:#c8d3de!important;font-size:17px!important;line-height:1.55!important;
+    max-width:32em!important;margin:0!important;
+  }
+}

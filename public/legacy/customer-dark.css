@@ -91,3 +91,85 @@
   #wizard .option-grid{grid-template-columns:1fr!important}
   #wizard .option{min-height:94px!important}
 }
+
+
+/* 2026-10-01 unified public chrome + estimate background correction */
+/* No light/dark switching on the public customer experience. */
+body:not(:has(#owner.active)){
+  background:#081119!important;color:#f5f3ee!important;
+}
+body:not(:has(#owner.active)) main{
+  background:#081119!important;
+}
+#wizard,#estimate,#booking,#confirmation{
+  min-height:100dvh!important;
+  background-color:#081119!important;
+}
+
+/* Estimate/result/booking chrome must stay dark too; this removes the white
+   header/footer blocks that leaked through the old cream base theme. */
+body:not(:has(#landing.active)):not(:has(#owner.active)) .topbar{
+  background:#081522!important;
+  border-bottom:1px solid #263a4d!important;
+  color:#f5f3ee!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+body:not(:has(#landing.active)):not(:has(#owner.active)) .brand-logo.logo-dark{display:block!important}
+body:not(:has(#landing.active)):not(:has(#owner.active)) .brand-logo.logo-light{display:none!important}
+body:not(:has(#owner.active)) .site-menu{
+  background:#0c1b2a!important;border-color:#30475c!important;color:#fff!important;
+}
+body:not(:has(#owner.active)) .site-menu button{color:#fff!important}
+
+/* ONE language control everywhere:
+   same US flag/background and geometry for EN and ES; only the selected
+   capsule moves from left to right. */
+body:not(:has(#owner.active)) .lang-toggle{
+  position:relative!important;overflow:hidden!important;isolation:isolate!important;
+  width:126px!important;height:51px!important;padding:4px 7px!important;
+  display:grid!important;grid-template-columns:1fr 1px 1fr!important;
+  align-items:center!important;gap:7px!important;
+  border:1px solid rgba(173,199,224,.62)!important;border-radius:25px!important;
+  background:linear-gradient(180deg,rgba(21,38,57,.94),rgba(10,25,40,.94))!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 7px 18px rgba(0,0,0,.20)!important;
+  backdrop-filter:blur(12px) saturate(125%)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(125%)!important;
+  color:#c3cbd3!important;font:600 14px/1 Arial,sans-serif!important;
+}
+body:not(:has(#owner.active)) .lang-toggle .flag-layer{position:absolute!important;inset:0!important}
+body:not(:has(#owner.active)) .lang-toggle .flag-us{
+  display:block!important;opacity:.20!important;z-index:-1!important;
+  filter:grayscale(.18) brightness(.86)!important;transform:none!important;
+}
+body:not(:has(#owner.active)) .lang-toggle .flag-es{display:none!important;opacity:0!important}
+body:not(:has(#owner.active)) .lang-toggle:before{
+  content:''!important;position:absolute!important;z-index:0!important;
+  left:4px!important;right:auto!important;top:4px!important;bottom:4px!important;width:53px!important;
+  border:1px solid rgba(48,166,255,.72)!important;border-radius:20px!important;
+  background:radial-gradient(circle at 50% 45%,rgba(56,182,255,.31),rgba(13,110,253,.20) 55%,rgba(10,31,49,.22))!important;
+  box-shadow:inset 0 0 13px rgba(56,182,255,.22),0 0 9px rgba(13,110,253,.30)!important;
+  transition:left .22s ease!important;
+}
+body:not(:has(#owner.active)) .lang-toggle.is-es:before{left:68px!important}
+body:not(:has(#owner.active)) .lang-choice{
+  display:grid!important;place-items:center!important;position:relative!important;z-index:2!important;
+  opacity:.60!important;color:#c3cbd3!important;text-shadow:none!important;
+  font:600 14px/1 Arial,sans-serif!important;
+}
+body:not(:has(#owner.active)) .lang-toggle:not(.is-es) .lang-en,
+body:not(:has(#owner.active)) .lang-toggle.is-es .lang-es{
+  opacity:1!important;color:#fff!important;font-weight:700!important;
+  text-shadow:0 0 7px #4bbcff,0 0 16px #1479ff!important;
+}
+body:not(:has(#owner.active)) .lang-toggle:not(.is-es) .lang-es,
+body:not(:has(#owner.active)) .lang-toggle.is-es .lang-en{
+  opacity:.60!important;color:#c3cbd3!important;text-shadow:none!important;
+}
+body:not(:has(#owner.active)) .lang-divider{
+  position:relative!important;z-index:2!important;height:22px!important;width:1px!important;
+  background:#dce8f455!important;color:transparent!important;opacity:1!important;
+}
+
+/* Keep the estimate footer/background dark even when its content is shorter
+   than the browser viewport. */
+body:not(:has(#owner.active)) .screen.active{background-color:#081119!important}

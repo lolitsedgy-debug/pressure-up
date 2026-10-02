@@ -42,8 +42,8 @@ document.getElementById('restartBtn').onclick=()=>{window.pressureFunnel?.reset(
 
 // V25 public landing interactions
 (function initPublicLanding(){
-  const hour=new Date().getHours();
-  document.body.dataset.theme=(hour>=6&&hour<18)?'light':'dark';
+  // Pressure Up public experience is intentionally dark-only.
+  document.body.dataset.theme='dark';
   const menuBtn=document.getElementById('menuBtn'),menu=document.getElementById('siteMenu');
   const setMenu=open=>{if(!menuBtn||!menu)return;menu.classList.toggle('open',open);menuBtn.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-hidden',String(!open))};
   menuBtn?.addEventListener('click',()=>setMenu(!menu.classList.contains('open')));

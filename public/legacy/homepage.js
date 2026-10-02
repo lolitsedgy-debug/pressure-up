@@ -81,13 +81,15 @@
     const copy = {
       heroEyebrow: ['2 MINUTE ESTIMATES', 'ESTIMADOS EN 2 MINUTOS'],
       heroBody: ['Get a fast, no-obligation estimate online.', 'Recibe un estimado rápido y sin compromiso en línea.'],
-      ownerEyebrow: ['OWNER-OPERATED', 'ATENDIDO POR EL DUEÑO'],
-      ownerHeading: ['Hi, I’m Edgar.', 'Hola, soy Edgar.'],
-      ownerBody: ['Owner-operated exterior cleaning with straightforward estimates, honest expectations, and careful work.', 'Limpieza exterior atendida por el dueño, con estimados claros, expectativas honestas y trabajo cuidadoso.'],
+      ownerBody: ['I’m based in Lawndale and serve our South Bay neighbors. When you reach out, you’re talking directly with me—from your first question to the final walkthrough.', 'Estoy en Lawndale y atiendo a nuestros vecinos de South Bay. Cuando te comunicas, hablas directamente conmigo—desde tu primera pregunta hasta el recorrido final.'],
       localKicker: ['SERVING THE SOUTH BAY', 'AL SERVICIO DE SOUTH BAY'],
       localBody: ['Lawndale, Redondo Beach, Torrance, Hawthorne and surrounding areas.', 'Lawndale, Redondo Beach, Torrance, Hawthorne y sus alrededores.']
     };
     for (const [id, words] of Object.entries(copy)) document.getElementById(id).textContent = words[es ? 1 : 0];
+    const ownerHeading = document.getElementById('ownerHeading');
+    const ownerRole = document.getElementById('ownerEyebrow');
+    if (ownerHeading) ownerHeading.innerHTML = es ? '<span>Hola, soy</span><em>Edgar.</em>' : '<span>Hi, I’m</span><em>Edgar.</em>';
+    if (ownerRole) ownerRole.innerHTML = es ? 'EL DUEÑO DETRÁS DE <strong>PRESSURE UP.</strong>' : 'THE OWNER BEHIND <strong>PRESSURE UP.</strong>';
     document.getElementById('heroHeading').innerHTML = es ? 'Mira el trabajo.<br>Recibe tu<br><em>estimado.</em>' : 'See the work.<br>Get your<br><em>estimate.</em>';
     document.getElementById('heroEstimateBtn').innerHTML = `<span>${es ? 'Obtener estimado' : 'Get My Estimate'}</span><span class="hero-arrow" aria-hidden="true">→</span>`;
     document.querySelectorAll('.service-tab span:last-child').forEach((label, index) => {

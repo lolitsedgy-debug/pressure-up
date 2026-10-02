@@ -327,8 +327,8 @@ body:has(#landing.active) .top-actions{transform:translateY(-13px)!important}
   background:#07111b url('/media/reference-south-bay-map.webp') center/100% 100% no-repeat!important;
   box-shadow:none!important;
 }
-html[lang="en"] .local-work .local-copy,
-html[lang="en"] .local-work .local-map{display:none!important}
+.local-work .local-copy,
+.local-work .local-map{display:none!important}
 
 /* Owner section: portrait is intentionally large, full-width and uncropped on phones. */
 @media(max-width:700px){

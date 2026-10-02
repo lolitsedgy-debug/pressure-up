@@ -12,10 +12,25 @@
   syncStyles();
   new MutationObserver(syncStyles).observe(landing, { attributes: true, attributeFilter: ['class'] });
   const visible = () => !document.hidden && landing.classList.contains('active') && !motion.matches;
-  videos.forEach(video => { video.muted = true; video.defaultMuted = true; video.playsInline = true; });
+  videos.forEach(video => { video.muted = true; video.defaultMuted = true; video.playsInline = true; video.preload = 'auto'; });
   function prepare(video, index) {
+    video.classList.remove('ready');
+    video.style.zIndex = '0';
     video.src = clips[index];
+    video.preload = 'auto';
     video.load();
+  }
+  function waitForPaintedFrame(video) {
+    return new Promise(resolve => {
+      let done = false;
+      const finish = () => { if (!done) { done = true; resolve(); } };
+      const fallback = setTimeout(finish, 450);
+      if ('requestVideoFrameCallback' in video) {
+        video.requestVideoFrameCallback(() => { clearTimeout(fallback); finish(); });
+      } else {
+        requestAnimationFrame(() => requestAnimationFrame(() => { clearTimeout(fallback); finish(); }));
+      }
+    });
   }
   // Keep the real poster until an actual video frame plays; never reveal an empty element.
   async function begin() {
@@ -23,6 +38,7 @@
     if (!videos[0].getAttribute('src')) prepare(videos[0], 0);
     try {
       await videos[0].play();
+      await waitForPaintedFrame(videos[0]);
       if (!visible()) { videos[0].pause(); return; }
       videos[0].classList.add('ready'); started = true;
       prepare(videos[1], 1);
@@ -35,6 +51,7 @@
     try {
       next.currentTime = 0;
       await next.play();
+      await waitForPaintedFrame(next);
       if (!visible()) { next.pause(); transitioning = false; return; }
       next.style.zIndex = '1'; previous.style.zIndex = '0';
       next.classList.add('ready');
